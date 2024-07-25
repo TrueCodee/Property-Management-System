@@ -22,7 +22,7 @@ This project is a Property Management System developed for the CP 317 – Softwa
    ```bash
    git clone <https://github.com/TrueCodee/Property-Management-System>
 
-2. Open the project in your preferred IDE:
+2. **Open the project in your preferred IDE:**
 - In Eclipse:
   - Go to 'File > Open Projects from File System...'
   - Select the cloned project directory
@@ -30,7 +30,7 @@ This project is a Property Management System developed for the CP 317 – Softwa
   - Go to 'File > Open'
   - Select the cloned project directory
  
-3. Add JUnit 5 to your project:
+3.** Add JUnit 5 to your project:**
 - In Eclipse:
   - Right-click on the project and select 'Properties'
   - Go to 'Java Build Path > Libraries > Add Library... > JUnit > Next > JUnit 5 > Finish'
@@ -39,10 +39,10 @@ This project is a Property Management System developed for the CP 317 – Softwa
   - Click '+' and add JUnit 5
  
 ## Running the Application
-1. Navigate to the 'Main' class:
+1. **Navigate to the 'Main' class:**
   - In Eclipse: 'src/com/property/management/Main.java'
   - In IntelliJ IDEA: 'src/com/property/management/Main.java'
-2. Run the 'Main' class:
+2. **Run the 'Main' class:**
   - Right-click on 'Main.java' and select 'Run As > Java Application' (Eclipse)
   - Right-click on Main.java and select Run 'Main.main()' (IntelliJ IDEA)
 
