@@ -30,7 +30,7 @@ This project is a Property Management System developed for the CP 317 – Softwa
   - Go to 'File > Open'
   - Select the cloned project directory
  
-3.** Add JUnit 5 to your project:**
+3. ** Add JUnit 5 to your project:**
 - In Eclipse:
   - Right-click on the project and select 'Properties'
   - Go to 'Java Build Path > Libraries > Add Library... > JUnit > Next > JUnit 5 > Finish'
