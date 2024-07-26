@@ -93,6 +93,7 @@ Unit tests are provided in the tests package. To run the tests:
 - Ensure all tests pass without errors. The JUnit view will display green for passed tests and red for failed tests.
 
 ## Project Structure
+
 property-management-system/
 │
 ├── src/
@@ -112,6 +113,7 @@ property-management-system/
 │
 ├── README.md
 └── ... (other project files)
+
 
 ## Authors
 - Aryan Jain
