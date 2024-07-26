@@ -92,29 +92,6 @@ Unit tests are provided in the tests package. To run the tests:
 ### Verify test results:
 - Ensure all tests pass without errors. The JUnit view will display green for passed tests and red for failed tests.
 
-## Project Structure
-
-property-management-system/
-property-management-system/
-│
-├── src/
-│ ├── com/property/management/
-│ │ ├── Lease.java
-│ │ ├── Main.java
-│ │ ├── MaintenanceRequest.java
-│ │ ├── Payment.java
-│ │ ├── Property.java
-│ │ └── Tenant.java
-│ └── tests/
-│ ├── LeaseTest.java
-│ ├── MaintenanceRequestTest.java
-│ ├── PaymentTest.java
-│ ├── PropertyTest.java
-│ └── TenantTest.java
-│
-├── README.md
-└── ... (other project files)
-
 
 ## Authors
 - Aryan Jain
