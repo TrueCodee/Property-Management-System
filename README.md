@@ -13,9 +13,9 @@ This project is a Property Management System developed for the CP 317 – Softwa
 ## Setup
 
 ### Prerequisites
-- Java Development Kit (JDK) 8 or later
-- An IDE such as Eclipse or IntelliJ IDEA
-- JUnit 5 for testing
+- Python 3.8 or later
+- An IDE such as Eclipse or VSCode
+- pytest for testing
 
 ### Installation
 1. **Clone the repository:**
@@ -26,71 +26,73 @@ This project is a Property Management System developed for the CP 317 – Softwa
 - In Eclipse:
   - Go to 'File > Open Projects from File System...'
   - Select the cloned project directory
-- In IntelliJ IDEA:
-  - Go to 'File > Open'
+- In  VSCode:
+  - Go to 'File > Open Folder'
   - Select the cloned project directory
  
-3. **Add JUnit 5 to your project:**
-- In Eclipse:
-  - Right-click on the project and select 'Properties'
-  - Go to 'Java Build Path > Libraries > Add Library... > JUnit > Next > JUnit 5 > Finish'
-- In IntelliJ IDEA:
-  - Go to 'File > Project Structure > Libraries'
-  - Click '+' and add JUnit 5
+3. **Install the required packages:**
+  - Navigate to the project directory in your terminal
+  - Run the following command to install the necessary packages:
+pip install -r requirements.txt
+
+
  
 ## Running the Application
 1. **Navigate to the 'Main' class:**
-  - In Eclipse: 'src/com/property/management/Main.java'
-  - In IntelliJ IDEA: 'src/com/property/management/Main.java'
+  - In Eclipse: 'src/main.py'
+  - In VSCode: 'src/main.py'
 2. **Run the 'Main' class:**
-  - Right-click on 'Main.java' and select 'Run As > Java Application' (Eclipse)
-  - Right-click on Main.java and select Run 'Main.main()' (IntelliJ IDEA)
+  - In Eclipse: Right-click on main.py and select Run 'main'
+  - In VSCode: Open 'main.py' and click the 'Run' button or use the shortcut 'F5'
 
 ## Usage
 ### Example Usage in Main.java
 The 'Main' class provides examples of how to use the various features of the Property Management System:
 Property Management System:
-public class Main {
-    public static void main(String[] args) {
-        // Example usage of the classes
+from property import Property
+from tenant import Tenant
+from lease import Lease
+from maintenance_request import MaintenanceRequest
+from payment import Payment
 
-        // Property example
-        Property property = new Property("P001", "123 Main St", "Apartment", "Available", 1200.0);
-        Property.addProperty(property);
-        System.out.println("Property added: " + property.getAddress());
+if __name__ == "__main__":
+    # Example usage of the classes
 
-        // Tenant example
-        Tenant tenant = new Tenant("T001", "John Doe", "555-1234", "L001");
-        Tenant.addTenant(tenant);
-        System.out.println("Tenant added: " + tenant.getName());
+    # Property example
+    property = Property("P001", "123 Main St", "Apartment", "Available", 1200.0)
+    Property.add_property(property)
+    print("Property added:", property.address)
 
-        // Lease example
-        Lease lease = new Lease("L001", "P001", "T001", "2024-01-01", "2025-01-01", 1200.0);
-        Lease.createLease(lease);
-        System.out.println("Lease created: " + lease.getStartDate());
+    # Tenant example
+    tenant = Tenant("T001", "John Doe", "555-1234", "L001")
+    Tenant.add_tenant(tenant)
+    print("Tenant added:", tenant.name)
 
-        // Maintenance request example
-        MaintenanceRequest request = new MaintenanceRequest("R001", "T001", "P001", "Leaky faucet", "Pending", "2024-07-25");
-        MaintenanceRequest.submitRequest(request);
-        System.out.println("Maintenance request submitted: " + request.getDescription());
+    # Lease example
+    lease = Lease("L001", "P001", "T001", "2024-01-01", "2025-01-01", 1200.0)
+    Lease.create_lease(lease)
+    print("Lease created:", lease.start_date)
 
-        // Payment example
-        Payment payment = new Payment("PAY001", "T001", "L001", 1200.0, "2024-01-01");
-        Payment.makePayment(payment);
-        System.out.println("Payment made: $" + payment.getAmount());
-    }
-}
+    # Maintenance request example
+    request = MaintenanceRequest("R001", "T001", "P001", "Leaky faucet", "Pending", "2024-07-25")
+    MaintenanceRequest.submit_request(request)
+    print("Maintenance request submitted:", request.description)
+
+    # Payment example
+    payment = Payment("PAY001", "T001", "L001", 1200.0, "2024-01-01")
+    Payment.make_payment(payment)
+    print("Payment made: $", payment.amount)
 
 ## Running Tests
 Unit tests are provided in the tests package. To run the tests:
 
 ### Run all 'tests' in the tests package:
-- Right-click on the 'tests' package
-- Select 'Run As > JUnit Test' (Eclipse)
-- Select Run 'All Tests' (IntelliJ IDEA)
+- Navigate to the project directory in your terminal
+- Run the following command:
+- pytest tests/
 
 ### Verify test results:
-- Ensure all tests pass without errors. The JUnit view will display green for passed tests and red for failed tests.
+- Ensure all tests pass without errors. The pytest output will show the status of each test.
 
 
 ## Authors
