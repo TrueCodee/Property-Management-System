@@ -45,60 +45,34 @@ from lease import Lease
 from maintenance_request import MaintenanceRequest
 from payment import Payment
 
-def demonstrate_property_management():
-    print("\n--- Property Management ---")
-    property = Property("P002", "456 Elm St", "House", "Available", 1500.0)
+if __name__ == "__main__":
+    # Example usage of the classes
+
+    # Property example
+    property = Property("P001", "123 Main St", "Apartment", "Available", 1200.0)
     Property.add_property(property)
-    Property.edit_property("P002", "456 Elm St, Apt 2", "House", "Rented", 1600.0)
-    Property.delete_property("P002")
+    print("Property added:", property.address)
 
-def demonstrate_tenant_management():
-    print("\n--- Tenant Management ---")
-    tenant = Tenant("T002", "Jane Doe", "555-6789", "L002")
+    # Tenant example
+    tenant = Tenant("T001", "John Doe", "555-1234", "L001")
     Tenant.add_tenant(tenant)
-    Tenant.edit_tenant("T002", "Jane Doe Updated", "555-9876", "L003")
-    Tenant.delete_tenant("T002")
+    print("Tenant added:", tenant.name)
 
-def demonstrate_lease_management():
-    print("\n--- Lease Management ---")
-    lease = Lease("L002", "P002", "T002", "2024-02-01", "2025-02-01", 1300.0)
+    # Lease example
+    lease = Lease("L001", "P001", "T001", "2024-01-01", "2025-01-01", 1200.0)
     Lease.create_lease(lease)
-    Lease.edit_lease("L002", "P002", "T002", "2024-02-01", "2025-03-01", 1400.0)
-    Lease.terminate_lease("L002")
+    print("Lease created:", lease.start_date)
 
-def demonstrate_maintenance_requests():
-    print("\n--- Maintenance Requests ---")
-    request = MaintenanceRequest("R002", "T002", "P002", "Broken window", "Pending", "2024-08-01")
+    # Maintenance request example
+    request = MaintenanceRequest("R001", "T001", "P001", "Leaky faucet", "Pending", "2024-07-25")
     MaintenanceRequest.submit_request(request)
-    MaintenanceRequest.track_request_status("R002")
+    print("Maintenance request submitted:", request.description)
 
-def demonstrate_payments():
-    print("\n--- Payments ---")
-    payment = Payment("PAY002", "T002", "L002", 1300.0, "2024-02-01")
+    # Payment example
+    payment = Payment("PAY001", "T001", "L001", 1200.0, "2024-01-01")
     Payment.make_payment(payment)
-    Payment.view_payment_history("T002")
+    print("Payment made: $", payment.amount)
 
-def run_tests():
-    print("\n--- Running Tests ---")
-    loader = unittest.TestLoader()
-    suite = loader.discover('tests')
-    runner = unittest.TextTestRunner()
-    result = runner.run(suite)
-    if result.wasSuccessful():
-        print("All tests passed successfully!")
-    else:
-        print("Some tests failed. Please check the test results for details.")
-
-def main():
-    print("Welcome to the Property Management System by Group 22")
-    print("Team Members: Harshita Nagasubramanian, Vishal Srikanth, Aryan Jain, Abdullah Abdullah, Wit Qi")
-
-    demonstrate_property_management()
-    demonstrate_tenant_management()
-    demonstrate_lease_management()
-    demonstrate_maintenance_requests()
-    demonstrate_payments()
-    run_tests()
 
 
 ## Authors
