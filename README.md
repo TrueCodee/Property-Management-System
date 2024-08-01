@@ -13,37 +13,27 @@ This project is a Property Management System developed for the CP 317 – Softwa
 ## Setup
 
 ### Prerequisites
-- Python 3.8 or later
-- An IDE such as Eclipse or VSCode
-- pytest for testing
+- Python 3.x
+- An IDE such as Eclipse with PyDev, PyCharm, or Visual Studio Code
 
 ### Installation
 1. **Clone the repository:**
    ```bash
    git clone <https://github.com/TrueCodee/Property-Management-System>
 
-2. **Open the project in your preferred IDE:**
-- In Eclipse:
-  - Go to 'File > Open Projects from File System...'
-  - Select the cloned project directory
-- In  VSCode:
-  - Go to 'File > Open Folder'
-  - Select the cloned project directory
+2. **Navigate to the project directory:**
+- cd property_management_system
  
-3. **Install the required packages:**
-  - Navigate to the project directory in your terminal
-  - Run the following command to install the necessary packages:
-pip install -r requirements.txt
-
-
  
 ## Running the Application
-1. **Navigate to the 'Main' class:**
-  - In Eclipse: 'src/main.py'
-  - In VSCode: 'src/main.py'
-2. **Run the 'Main' class:**
-  - In Eclipse: Right-click on main.py and select Run 'main'
-  - In VSCode: Open 'main.py' and click the 'Run' button or use the shortcut 'F5'
+1. **Run the 'main.py' file:**
+  - python main.py
+
+## Running Tests
+1. Navigate to the project directory:
+   - cd property_management_system
+2. Run all tests:
+   - python -m unittest discover -s tests
 
 ## Usage
 ### Example Usage in Main.java
@@ -55,44 +45,60 @@ from lease import Lease
 from maintenance_request import MaintenanceRequest
 from payment import Payment
 
-if __name__ == "__main__":
-    # Example usage of the classes
-
-    # Property example
-    property = Property("P001", "123 Main St", "Apartment", "Available", 1200.0)
+def demonstrate_property_management():
+    print("\n--- Property Management ---")
+    property = Property("P002", "456 Elm St", "House", "Available", 1500.0)
     Property.add_property(property)
-    print("Property added:", property.address)
+    Property.edit_property("P002", "456 Elm St, Apt 2", "House", "Rented", 1600.0)
+    Property.delete_property("P002")
 
-    # Tenant example
-    tenant = Tenant("T001", "John Doe", "555-1234", "L001")
+def demonstrate_tenant_management():
+    print("\n--- Tenant Management ---")
+    tenant = Tenant("T002", "Jane Doe", "555-6789", "L002")
     Tenant.add_tenant(tenant)
-    print("Tenant added:", tenant.name)
+    Tenant.edit_tenant("T002", "Jane Doe Updated", "555-9876", "L003")
+    Tenant.delete_tenant("T002")
 
-    # Lease example
-    lease = Lease("L001", "P001", "T001", "2024-01-01", "2025-01-01", 1200.0)
+def demonstrate_lease_management():
+    print("\n--- Lease Management ---")
+    lease = Lease("L002", "P002", "T002", "2024-02-01", "2025-02-01", 1300.0)
     Lease.create_lease(lease)
-    print("Lease created:", lease.start_date)
+    Lease.edit_lease("L002", "P002", "T002", "2024-02-01", "2025-03-01", 1400.0)
+    Lease.terminate_lease("L002")
 
-    # Maintenance request example
-    request = MaintenanceRequest("R001", "T001", "P001", "Leaky faucet", "Pending", "2024-07-25")
+def demonstrate_maintenance_requests():
+    print("\n--- Maintenance Requests ---")
+    request = MaintenanceRequest("R002", "T002", "P002", "Broken window", "Pending", "2024-08-01")
     MaintenanceRequest.submit_request(request)
-    print("Maintenance request submitted:", request.description)
+    MaintenanceRequest.track_request_status("R002")
 
-    # Payment example
-    payment = Payment("PAY001", "T001", "L001", 1200.0, "2024-01-01")
+def demonstrate_payments():
+    print("\n--- Payments ---")
+    payment = Payment("PAY002", "T002", "L002", 1300.0, "2024-02-01")
     Payment.make_payment(payment)
-    print("Payment made: $", payment.amount)
+    Payment.view_payment_history("T002")
 
-## Running Tests
-Unit tests are provided in the tests package. To run the tests:
+def run_tests():
+    print("\n--- Running Tests ---")
+    loader = unittest.TestLoader()
+    suite = loader.discover('tests')
+    runner = unittest.TextTestRunner()
+    result = runner.run(suite)
+    if result.wasSuccessful():
+        print("All tests passed successfully!")
+    else:
+        print("Some tests failed. Please check the test results for details.")
 
-### Run all 'tests' in the tests package:
-- Navigate to the project directory in your terminal
-- Run the following command:
-- pytest tests/
+def main():
+    print("Welcome to the Property Management System by Group 22")
+    print("Team Members: Harshita Nagasubramanian, Vishal Srikanth, Aryan Jain, Abdullah Abdullah, Wit Qi")
 
-### Verify test results:
-- Ensure all tests pass without errors. The pytest output will show the status of each test.
+    demonstrate_property_management()
+    demonstrate_tenant_management()
+    demonstrate_lease_management()
+    demonstrate_maintenance_requests()
+    demonstrate_payments()
+    run_tests()
 
 
 ## Authors
