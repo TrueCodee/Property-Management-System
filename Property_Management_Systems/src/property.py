@@ -30,3 +30,21 @@ class Property:
         cls.properties = [
             property for property in cls.properties if property.property_id != property_id]
         print(f"Property {property_id} deleted.")
+
+    @classmethod
+    def view_properties(cls):
+        for property in cls.properties:
+            print(f"ID: {property.property_id}, Address: {property.address}, Type: {property.property_type}, Status: {property.status}, Rent: {property.rent_amount}")
+
+
+# Input
+property1 = Property("P001", "201 Lester", "Apartment", "Available", 1200.0)
+Property.add_property(property1)
+Property.view_properties()
+
+Property.edit_property("P001", "201 Lester, Apt 2",
+                       "Apartment", "Rented", 1300.0)
+Property.view_properties()
+
+Property.delete_property("P001")
+Property.view_properties()

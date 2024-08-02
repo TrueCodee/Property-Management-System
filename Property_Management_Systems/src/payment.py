@@ -18,3 +18,13 @@ class Payment:
         for payment in cls.payments:
             if payment.tenant_id == tenant_id:
                 print(f"Payment: ${payment.amount} on {payment.date}")
+
+
+# Input
+payment1 = Payment("PAY001", "T001", "L001", 1200.0, "2024-01-01")
+Payment.make_payment(payment1)
+Payment.view_payment_history("T001")
+
+payment2 = Payment("PAY002", "T001", "L001", 1300.0, "2024-02-01")
+Payment.make_payment(payment2)
+Payment.view_payment_history("T001")

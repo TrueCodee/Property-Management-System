@@ -32,3 +32,20 @@ class Lease:
         cls.leases = [
             lease for lease in cls.leases if lease.lease_id != lease_id]
         print(f"Lease {lease_id} terminated.")
+
+    @classmethod
+    def view_leases(cls):
+        for lease in cls.leases:
+            print(f"ID: {lease.lease_id}, Property ID: {lease.property_id}, Tenant ID: {lease.tenant_id}, Start: {lease.start_date}, End: {lease.end_date}, Rent: {lease.rent_amount}")
+
+
+# Input
+lease1 = Lease("L001", "P001", "T001", "2024-01-01", "2025-01-01", 1200.0)
+Lease.create_lease(lease1)
+Lease.view_leases()
+
+Lease.edit_lease("L001", "P002", "T002", "2024-01-01", "2025-01-15", 1250.0)
+Lease.view_leases()
+
+Lease.terminate_lease("L001")
+Lease.view_leases()

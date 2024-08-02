@@ -28,3 +28,21 @@ class Tenant:
         cls.tenants = [
             tenant for tenant in cls.tenants if tenant.tenant_id != tenant_id]
         print(f"Tenant {tenant_id} deleted.")
+
+    @classmethod
+    def view_tenants(cls):
+        for tenant in cls.tenants:
+            print(
+                f"ID: {tenant.tenant_id}, Name: {tenant.name}, Contact: {tenant.contact_info}, Lease ID: {tenant.lease_id}")
+
+
+# Input
+tenant1 = Tenant("T001", "Chris Evans", "647-555-1234", "L001")
+Tenant.add_tenant(tenant1)
+Tenant.view_tenants()
+
+Tenant.edit_tenant("T001", "Chris Evans", "647-555-5678", "L002")
+Tenant.view_tenants()
+
+Tenant.delete_tenant("T001")
+Tenant.view_tenants()
